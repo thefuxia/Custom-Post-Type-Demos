@@ -1,7 +1,7 @@
 <?php # -*- coding: utf-8 -*-
 /*
-Plugin Name: Custom Post Type Demo 4 - CPT 'Cats' with taxonomies and a meta box
-Description: Creates a public Custom Post Type in its own main menu, with custom labels, two taxonomies and a meta box.
+Plugin Name: Custom Post Type Demo 4 - CPT 'Cats' with taxonomies.
+Description: Creates a public Custom Post Type in its own main menu, with custom labels and three taxonomies.
 Version:     1.0
 Required:    3.1
 Author:      Thomas Scholz
@@ -48,7 +48,6 @@ class CPT4
 	{
 		$this->register_cpt();
 		$this->register_taxonomies();
-		$this->register_metabox();
 	}
 
 	/**
@@ -132,14 +131,6 @@ class CPT4
 
 		// taxonomy, object type, arguments
 		register_taxonomy( 'color', $this->post_type, $args );
-	}
-
-	/**
-	 * Registers a meta box.
-	 */
-	public function register_metabox()
-	{
-
 	}
 
 	/**
