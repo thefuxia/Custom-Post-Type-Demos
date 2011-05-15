@@ -84,7 +84,7 @@ class CPT4
 		     * 100 - below second separator
 		     */
 		    ,	'menu_position'       => 100
-				// visible
+			// visible
 		    ,	'public'              => TRUE
 		    // Enable all sorts of URIs
 		    ,	'publicly_queryable'  => TRUE
@@ -98,7 +98,8 @@ class CPT4
 		    ,	'show_ui'             => TRUE
 		    // Components of the editor.
 		    ,	'supports'            => array ( 'editor', 'title', 'page-attributes', 'thumbnail' )
-				// Menu main name, usually plural
+		    // We use the built-in taxonomies too.
+		    ,	'taxonomies'          => array ( 'category', 'post_tag' )
 			)
 		);
 	}
@@ -109,28 +110,7 @@ class CPT4
 	public function register_taxonomies()
 	{
 		// By default tag labels are used for non-hierarchical types and category labels for hierarchical ones.
-		$labels = array (
-			// General name, plural
-			'name'                       => 'Colors'
-			// Single item name
-		,	'singular_name'              => 'Color'
-			// Menu name
-		,	'menu_name'                  => 'Colors'
-			// Search heading
-		,	'search_items'               => 'Search colors'
-		,	'popular_items'              => 'Popular colors'
-		,	'all_items'                  => 'All colors'
-		,	'edit_item'                  => 'Edit color'
-		,	'update_item'                => 'Update color'
-		,	'add_new_item'               => 'Add new color'
-		,	'new_item_name'              => 'New color name'
-		,	'separate_items_with_commas' => 'Separate colors with comma'
-		,	'add_or_remove_items'        => 'Add or remove colors'
-		,	'choose_from_most_used'      => 'Choose from most used colors'
-			// Next both are for hierarchical taxonomies only.
-		,	'parent_item'                => 'Parent color'
-		,	'parent_item_colon'          => 'Parent color:'
-		);
+		$labels = $this->get_tax_labels();
 
 		$args = array (
 			// We use the default, but you can ovveride it here.
@@ -193,6 +173,31 @@ class CPT4
 	 */
 	protected function get_tax_labels()
 	{
+		// By default tag labels are used for non-hierarchical types and
+		// category labels for hierarchical ones.
+		$labels = array (
+			// General name, plural
+			'name'                       => 'Colors'
+			// Single item name
+		,	'singular_name'              => 'Color'
+			// Menu name
+		,	'menu_name'                  => 'Colors'
+			// Search heading
+		,	'search_items'               => 'Search colors'
+		,	'popular_items'              => 'Popular colors'
+		,	'all_items'                  => 'All colors'
+		,	'edit_item'                  => 'Edit color'
+		,	'update_item'                => 'Update color'
+		,	'add_new_item'               => 'Add new color'
+		,	'new_item_name'              => 'New color name'
+		,	'separate_items_with_commas' => 'Separate colors with comma'
+		,	'add_or_remove_items'        => 'Add or remove colors'
+		,	'choose_from_most_used'      => 'Choose from most used colors'
+			// Next both are for hierarchical taxonomies only.
+		,	'parent_item'                => 'Parent color'
+		,	'parent_item_colon'          => 'Parent color:'
+		);
 
+		return $labels;
 	}
 }
