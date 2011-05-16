@@ -223,6 +223,27 @@ abstract class Toscho_CPT_And_Tax_Base
 	}
 
 	/**
+	 * Messages for update boxes.
+	 *
+	 * @param  array $update_messages
+	 * @return void
+	 */
+	public function set_update_messages( array $update_messages )
+	{
+		$this->update_messages = $update_messages;
+	}
+
+	/**
+	 * Getter for labels.
+	 *
+	 * @return array
+	 */
+	public function get_update_messages()
+	{
+		return $this->update_messages;
+	}
+
+	/**
 	 * Calls the register function.
 	 *
 	 * @return void
@@ -237,11 +258,11 @@ abstract class Toscho_CPT_And_Tax_Base
 	abstract public function add_to_dashboard();
 
 	/**
-	 * Messages for updates (yellow boxes).
+	 * Show a link in favorites dropdown.
 	 *
 	 * @return void
 	 */
-	abstract public function add_update_messages();
+	abstract public function add_to_favorites();
 }
 
 
