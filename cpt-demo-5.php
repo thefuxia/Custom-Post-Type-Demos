@@ -258,11 +258,13 @@ abstract class Toscho_CPT_And_Tax_Base
 	abstract public function add_to_dashboard();
 
 	/**
-	 * Show a link in favorites dropdown.
+	 * Adds quick links to the favorite actions dropdown.
 	 *
-	 * @return void
+	 * @param  array  $actions List of already defined actions
+	 * @param  object $screen Current screen object
+	 * @return array  $actions
 	 */
-	abstract public function add_to_favorites();
+	abstract public function add_to_favorites( $actions, $screen );
 }
 
 
