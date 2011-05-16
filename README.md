@@ -9,9 +9,10 @@ This is a set of plugins to show what you can do with custom post types in WordP
 
 Some links:
 
-- http://justintadlock.com/archives/2010/04/29/custom-post-types-in-wordpress
-- http://codex.wordpress.org/Post_Types
-- http://wordpress.stackexchange.com/questions/tagged/custom-post-types?sort=votes
-- http://is.gd/EhjnDM Search for Custom Post Types in my search engine.
+- [Justin Tadlock: Custom post types in WordPress](http://justintadlock.com/archives/2010/04/29/custom-post-types-in-wordpress) – A very basic introduction.
+- [Codex: Post Types](http://codex.wordpress.org/Post_Types) – For a general understanding.
+- [WordPress StackExchange: Highest voted questions](http://wordpress.stackexchange.com/questions/tagged/custom-post-types?sort=votes) – Some interesting qustions and answers, showcases and links.
+- [Search for Custom Post Types in my search engine.](http://is.gd/EhjnDM) 
 
-
+- [Bugs with CPTs](http://core.trac.wordpress.org/query?status=accepted&status=assigned&status=new&status=reopened&status=reviewing&component=Post+Types&order=type) 
+- [Bugs with Taxonomies](http://core.trac.wordpress.org/query?status=%21closed&component=Taxonomy&order=type) 
