@@ -133,6 +133,7 @@ abstract class Toscho_CPT_And_Tax_Base
 	{
 		$this->post_type   = $post_type;
 		$this->text_domain = $text_domain;
+		add_action( 'contextual_help', array ( $this, 'add_help_text' ), 10, 3 );
 		$this->extend_defaults();
 	}
 
@@ -241,6 +242,26 @@ abstract class Toscho_CPT_And_Tax_Base
 	public function get_update_messages()
 	{
 		return $this->update_messages;
+	}
+
+	/**
+	 * Insert custom text into the help tab.
+	 *
+	 * @param  string $contextual_help Original text. Usually just two links.
+	 * @param  string $screen_id       Name of the current screen
+	 * @param  object $screen          Object with information about the screen.
+	 * @return string $help            New text if set in $options.
+	 */
+	public function add_help_text( $contextual_help, $screen_id, $screen )
+	{
+		$help = trim( $this->options['help_text'] );
+
+		if ( $this->name != $screen->id or '' == $help )
+		{
+			return $contextual_help;
+		}
+
+		return $help;
 	}
 
 	/**
