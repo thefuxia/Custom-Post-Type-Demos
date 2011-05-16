@@ -5,6 +5,9 @@ abstract class Toscho_CPT_And_Tax_Base
 	/**
 	 * Internal name.
 	 *
+	 * Lowercase.
+	 * Do not use hyphens: http://core.trac.wordpress.org/ticket/15970
+	 *
 	 * @var string
 	 */
 	protected $name;
@@ -72,9 +75,9 @@ abstract class Toscho_CPT_And_Tax_Base
 	 *
 	 * Calls the register functions.
 	 */
-	public function __construct( $post_type, $text_domain = 'default' )
+	public function __construct( $name, $text_domain = 'default' )
 	{
-		$this->post_type   = $post_type;
+		$this->name        = $name;
 		$this->text_domain = $text_domain;
 		add_action( 'contextual_help', array ( $this, 'add_help_text' ), 10, 3 );
 		$this->extend_defaults();
@@ -220,13 +223,4 @@ abstract class Toscho_CPT_And_Tax_Base
 	 * @return void
 	 */
 	abstract public function add_to_dashboard();
-
-	/**
-	 * Adds quick links to the favorite actions dropdown.
-	 *
-	 * @param  array  $actions List of already defined actions
-	 * @param  object $screen Current screen object
-	 * @return array  $actions
-	 */
-	abstract public function add_to_favorites( $actions, $screen );
 }
