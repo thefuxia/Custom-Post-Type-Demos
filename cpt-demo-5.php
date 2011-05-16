@@ -52,6 +52,11 @@ class CPT5_Controller
 	 */
 	public function __construct()
 	{
+		foreach ( array ( 'CPT_And_Tax', 'CPT', 'Taxonomy' ) as $class )
+		{
+			$name = 'Toscho_' . $class . '_Base';
+			! class_exists( $name ) and include "./class.$name.php";
+		}
 		$this->register_cpt();
 		$this->register_taxonomies();
 	}
