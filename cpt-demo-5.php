@@ -147,6 +147,16 @@ abstract class Toscho_CPT_And_Tax_Base
 	}
 
 	/**
+	 * Getter for labels.
+	 *
+	 * @return array
+	 */
+	public function get_labels()
+	{
+		return $this->labels;
+	}
+
+	/**
 	 * Capabilities for editing, publishing etc.
 	 *
 	 * @param  array $capabilities
@@ -155,6 +165,16 @@ abstract class Toscho_CPT_And_Tax_Base
 	public function set_caps( array $capabilities )
 	{
 		$this->capabilities = $capabilities;
+	}
+
+	/**
+	 * Getter for capabilities.
+	 *
+	 * @return array
+	 */
+	public function get_caps()
+	{
+		return $this->capabilities;
 	}
 
 	/**
@@ -169,14 +189,16 @@ abstract class Toscho_CPT_And_Tax_Base
 	}
 
 	/**
-	 * More arguments for the register call.
+	 * Construct the arguments.
 	 *
-	 * @param  array $args
-	 * @return void
+	 * @return array $args
 	 */
-	public function get_args( array $args )
+	public function get_args()
 	{
-		$this->args = $args;
+		$args                 = $this->args;
+		$args['capabilities'] = $this->get_caps();
+		$args['labels']       = $this->get_labels();
+		return $args;
 	}
 
 	/**
