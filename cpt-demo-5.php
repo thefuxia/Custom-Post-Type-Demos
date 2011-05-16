@@ -133,7 +133,17 @@ abstract class Toscho_CPT_And_Tax_Base
 	{
 		$this->post_type   = $post_type;
 		$this->text_domain = $text_domain;
+		$this->extend_defaults();
 	}
+
+	/**
+	 * Extends the default values with object specific fields.
+	 *
+	 * Pseudo child constructor.
+	 *
+	 * @return void
+	 */
+	abstract public function extend_defaults();
 
 	/**
 	 * Labels for the backend.
@@ -232,33 +242,37 @@ abstract class Toscho_CPT_And_Tax_Base
 	 * @return void
 	 */
 	abstract public function add_update_messages();
-
 }
 
+
+/**
+ * Base class for a Custom Post Types
+ *
+ * @author Thomas Scholz <info@toscho.de>
+ * @version 1.1
+ */
 class Toscho_CPT_Base extends Toscho_CPT_And_Tax_Base
 {
+	public function extend_defaults()
+	{
+
+	}
 }
 
+
+/**
+ * Base class for a Custom Taxonomy
+ *
+ * @author Thomas Scholz <info@toscho.de>
+ * @version 1.1
+ */
 class Toscho_Taxonomy_Base extends Toscho_CPT_And_Tax_Base
 {
-
-	/**
-	 * More options.
-	 *
-	 * @var array
-	 */
-	protected $options      = array (
-		// Text in help tab.
-		'help_text'          => ''
-		// Backend post type list.
-	,	'show_in_table_view' => TRUE
-		// Drop down sorter in backend.
-	,	'show_sorter'        => TRUE
-		// Right now box.
-	,	'show_on_dashboard'  => TRUE
-		// Drop down at the top
-	,	'show_in_favorites'  => TRUE
-	);
+	public function extend_defaults()
+	{
+		$this->options['show_in_table_view'] = TRUE;
+		$this->options['show_sorter']        = TRUE;
+	}
 
 	/**
 	 * Post types to which the taxonomy should be applied.
