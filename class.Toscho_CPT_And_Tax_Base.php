@@ -66,8 +66,6 @@ abstract class Toscho_CPT_And_Tax_Base
 		'help_text'          => ''
 		// Right now dashboard widget.
 	,	'show_on_dashboard'  => TRUE
-		// Drop down at the top
-	,	'show_in_favorites'  => TRUE
 	);
 
 	/**
