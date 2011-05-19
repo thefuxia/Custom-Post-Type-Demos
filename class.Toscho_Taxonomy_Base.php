@@ -18,7 +18,7 @@ class Toscho_Taxonomy_Base extends Toscho_CPT_And_Tax_Base
 	 *
 	 * @var array
 	 */
-	protected $post_types = array ();
+	public $post_types = array ();
 
 	public function run()
 	{
