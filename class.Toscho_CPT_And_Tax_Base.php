@@ -36,6 +36,9 @@ abstract class Toscho_CPT_And_Tax_Base
 	/**
 	 * Register arguments.
 	 *
+	 * Here we use just the arguments taxonomies and CPTs share.
+	 * Use #extend_defaults() to overwrite other arguments.
+	 *
 	 * @var array
 	 */
 	protected $args         = array (
@@ -45,19 +48,24 @@ abstract class Toscho_CPT_And_Tax_Base
     ,	'show_in_nav_menus'   => TRUE
     	// Parents and children.
 	,	'hierarchical'        => TRUE
+		// Use a slug in pretty permalinks
 	,	'rewrite'             => TRUE
+		// backend interface
 	,	'show_ui'             => TRUE
 	);
 
 	/**
 	 * Messages in yellow boxes.
 	 *
+	 * @see set_update_messages()
 	 * @var array
 	 */
 	protected $update_messages = array ();
 
 	/**
 	 * More options.
+	 *
+	 * Enable other features besides the register_* call.
 	 *
 	 * @var array
 	 */
@@ -71,7 +79,12 @@ abstract class Toscho_CPT_And_Tax_Base
 	/**
 	 * Constructor.
 	 *
-	 * Calls the register functions.
+	 * Calls the register functions and sets basic information.
+	 *
+	 * @param  string $name Name of the taxonomie or the CPT. Use [a-z][a-z\d].
+	 *                      Anything else may be buggy.
+	 * @param  string $text_domain Identifier for language files.
+	 * @return void
 	 */
 	public function __construct( $name, $text_domain = 'default' )
 	{
