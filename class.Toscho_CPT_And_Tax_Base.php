@@ -60,7 +60,7 @@ abstract class Toscho_CPT_And_Tax_Base
 	 *
 	 * @var array
 	 */
-	protected $args         = array (
+	protected $args = array (
 		// visible
 		'public'              => TRUE
 		// Add it to custom menus
@@ -88,7 +88,7 @@ abstract class Toscho_CPT_And_Tax_Base
 	 *
 	 * @var array
 	 */
-	protected $options      = array (
+	protected $options = array (
 		// Text in help tab.
 		'help_text'          => ''
 		// Right now dashboard widget.
