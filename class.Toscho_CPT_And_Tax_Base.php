@@ -214,7 +214,7 @@ abstract class Toscho_CPT_And_Tax_Base
 	}
 
 	/**
-	 * Getter for labels.
+	 * Getter for messages.
 	 *
 	 * @return array
 	 */
