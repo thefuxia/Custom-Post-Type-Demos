@@ -9,6 +9,10 @@
  * In child classes you shouldn’t need to extend the constructor.
  * Use extend_defaults() instead.
  *
+ * Don’t forget to flush the rewrite rules to get pretty permalinks. Either go
+ * to wp-admin/options-permalink.php or add flush_rewrite_rules to the
+ * activation hook of your plugin.
+ *
  * @author     Thomas Scholz <info@toscho.de>
  * @package    ToschoTools
  * @subpackage classes
