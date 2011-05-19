@@ -1,5 +1,11 @@
 <?php # -*- coding: utf-8 -*-
-
+/**
+ *
+ * @author     Thomas Scholz <info@toscho.de>
+ * @package    ToschoTools
+ * @subpackage classes
+ * @version    0.1
+ */
 abstract class Toscho_CPT_And_Tax_Base
 {
 	/**
