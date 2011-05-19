@@ -1,17 +1,26 @@
 <?php # -*- coding: utf-8 -*-
 /**
+ * This is a base class to create custom post types and custom taxonomies in
+ * WordPress. You have to extend it, samples should be in the same directory as
+ * this class.
+ * The main purpose here is to take out as much repeated work as possible to
+ * keep the child classes clean and short.
+ *
+ * In child classes you shouldn’t need to extend the constructor.
+ * Use extend_defaults() instead.
  *
  * @author     Thomas Scholz <info@toscho.de>
  * @package    ToschoTools
  * @subpackage classes
  * @version    0.1
+ * @license    http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 abstract class Toscho_CPT_And_Tax_Base
 {
 	/**
 	 * Internal name.
 	 *
-	 * Lowercase.
+	 * Lowercase!
 	 * Do not use hyphens: http://core.trac.wordpress.org/ticket/15970
 	 *
 	 * @var string
