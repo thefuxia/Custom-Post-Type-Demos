@@ -90,7 +90,7 @@ abstract class Toscho_CPT_And_Tax_Base
 	{
 		$this->name        = $name;
 		$this->text_domain = $text_domain;
-		add_action( 'contextual_help', array ( $this, 'add_help_text' ), 10, 3 );
+		add_filter( 'contextual_help', array ( $this, 'add_help_text' ), 10, 3 );
 		$this->extend_defaults();
 	}
 
