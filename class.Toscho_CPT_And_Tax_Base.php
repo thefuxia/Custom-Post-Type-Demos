@@ -106,6 +106,8 @@ abstract class Toscho_CPT_And_Tax_Base
 	/**
 	 * Labels for the backend.
 	 *
+	 * @link   http://codex.wordpress.org/Function_Reference/register_taxonomy
+	 * @link   http://codex.wordpress.org/Function_Reference/register_post_type
 	 * @param  array $labels
 	 * @return void
 	 */
