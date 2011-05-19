@@ -129,6 +129,7 @@ abstract class Toscho_CPT_And_Tax_Base
 	/**
 	 * Capabilities for editing, publishing etc.
 	 *
+	 * @link   http://codex.wordpress.org/Roles_and_Capabilities
 	 * @param  array $capabilities
 	 * @return void
 	 */
@@ -159,7 +160,7 @@ abstract class Toscho_CPT_And_Tax_Base
 	}
 
 	/**
-	 * Construct the arguments.
+	 * Prepare the arguments.
 	 *
 	 * @return array $args
 	 */
@@ -172,7 +173,7 @@ abstract class Toscho_CPT_And_Tax_Base
 	}
 
 	/**
-	 * Change the default options.
+	 * Change the default extra options.
 	 *
 	 * @param  array $options
 	 * @return void
@@ -206,10 +207,12 @@ abstract class Toscho_CPT_And_Tax_Base
 	/**
 	 * Insert custom text into the help tab.
 	 *
+	 * Called by add_filter( 'contextual_help', ... )
+	 *
 	 * @param  string $contextual_help Original text. Usually just two links.
 	 * @param  string $screen_id       Name of the current screen
 	 * @param  object $screen          Object with information about the screen.
-	 * @return string $help            New text if set in $options.
+	 * @return string $help            New text if one is set in $options.
 	 */
 	public function add_help_text( $contextual_help, $screen_id, $screen )
 	{
