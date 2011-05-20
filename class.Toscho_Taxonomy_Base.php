@@ -54,20 +54,4 @@ class Toscho_Taxonomy_Base extends Toscho_CPT_And_Tax_Base
         }
         $this->print_dashboard_row( $this->name, $num, $text );
 	}
-
-	/**
-	 * Prints a table row in the right now widget.
-	 *
-	 * Helper for add_to_dashboard()
-	 *
-	 * @param  string $name CPT or taxonomy name
-	 * @param  int    $num Amount of CPTs or taxonomy items
-	 * @param  string $text Public name of the item
-	 * @return void
-	 */
-	protected function print_dashboard_row( $name, $num, $text )
-	{
-        echo "<td class='first b b-{$name}s'>$num</td>
-        	<td class='t {$name}s'>$text</td></tr><tr>";
-	}
 }
