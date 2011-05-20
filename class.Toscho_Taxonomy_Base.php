@@ -36,7 +36,7 @@ class Toscho_Taxonomy_Base extends Toscho_CPT_And_Tax_Base
 	}
 
 	/**
-	 * Show name and number in the right now dashboard widget.
+	 * Show name and number in the Right Now dashboard widget.
 	 *
 	 * @return void
 	 */
@@ -52,6 +52,7 @@ class Toscho_Taxonomy_Base extends Toscho_CPT_And_Tax_Base
             $num  = "<a href='edit-tags.php?taxonomy=$this->name'>$num</a>";
             $text = "<a href='edit-tags.php?taxonomy=$this->name'>$text</a>";
         }
+
         $this->print_dashboard_row( $this->name, $num, $text );
 	}
 }
