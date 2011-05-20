@@ -76,7 +76,7 @@ abstract class Toscho_CPT_And_Tax_Base
 	/**
 	 * Messages in yellow boxes.
 	 *
-	 * @see set_update_messages()
+	 * @see Toscho_CPT_And_Tax_Base::set_update_messages()
 	 * @var array
 	 */
 	protected $update_messages = array ();
