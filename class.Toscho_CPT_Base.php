@@ -9,6 +9,14 @@ class Toscho_CPT_Base extends Toscho_CPT_And_Tax_Base
 {
 	public function extend_defaults()
 	{
+		// Add the CPT to the list of pages to show on the front page.
+		add_filter(
+			'wp_dropdown_pages'
+		,	array ( $this, 'add_cpt_to_front_page_dropdown' )
+		,	10
+		,	1
+		);
+		$this->options['offer_as_front_page'] = TRUE;
 
 	}
 
@@ -31,5 +39,47 @@ class Toscho_CPT_Base extends Toscho_CPT_And_Tax_Base
         }
 
         $this->print_dashboard_row( $this->name, $num, $text );
+	}
+
+	/**
+	 * Adds CPTs to the list of available pages for a static front page.
+	 *
+	 * @param  string $select Existing select list.
+	 * @return string
+	 */
+	function add_cpt_to_front_page_dropdown( $select )
+	{
+		// Not our list.
+		if ( FALSE === strpos( $select, '<select name="page_on_front"' )
+			or ! $this->options['offer_as_front_page']
+		)
+		{
+			return $select;
+		}
+
+		$cpt_posts = get_posts( array( 'post_type' => $this->name ) );
+
+		if ( ! $cpt_posts ) // no posts found.
+		{
+			return $select;
+		}
+
+		$options = walk_page_dropdown_tree(
+			$cpt_posts
+		,	0
+		,	 array(
+				'depth'                 => 0
+			 ,	'child_of'              => 0
+			 ,	'selected'              => 0
+			 ,	'echo'                  => 0
+			 ,	'name'                  => 'page_on_front'
+			 ,	'id'                    => ''
+			 ,	'show_option_none'      => ''
+			 ,	'show_option_no_change' => ''
+			 ,	'option_none_value'     => ''
+			)
+		);
+
+		return str_replace( '</select>', $options . '</select>', $select );
 	}
 }
