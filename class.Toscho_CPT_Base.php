@@ -70,8 +70,7 @@ class Toscho_CPT_Base extends Toscho_CPT_And_Tax_Base
 			return $select;
 		}
 
-		$current = get_option( 'page_on_front' );
-		empty ( $current ) and $current = 0;
+		$current = get_option( 'page_on_front', 0 );
 
 		$options = walk_page_dropdown_tree(
 			$cpt_posts
