@@ -55,7 +55,6 @@ class Toscho_CPT_Base extends Toscho_CPT_And_Tax_Base
 	 */
 	function add_cpt_to_front_page_dropdown( $select )
 	{
-		// Not our list.
 		if ( ! $this->options['offer_as_front_page']
 			or FALSE === strpos( $select, '<select name="page_on_front"' )
 		)
@@ -63,7 +62,16 @@ class Toscho_CPT_Base extends Toscho_CPT_And_Tax_Base
 			return $select;
 		}
 
-		$cpt_posts = get_posts( array( 'post_type' => $this->name ) );
+		$cpt_posts = get_posts(
+			array(
+				'post_type'      => $this->name
+			,	'nopaging'       => TRUE
+			,	'numberposts'    => -1
+			,	'order'          => 'ASC'
+			,	'orderby'        => 'title'
+			,	'posts_per_page' => -1
+			)
+		);
 
 		if ( ! $cpt_posts ) // no posts found.
 		{
