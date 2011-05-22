@@ -9,18 +9,19 @@
  */
 class Toscho_Taxonomy_Base extends Toscho_CPT_And_Tax_Base
 {
-	public function extend_defaults()
-	{
-		$this->options['show_in_table_view'] = TRUE;
-		$this->options['show_sorter']        = TRUE;
-	}
-
 	/**
 	 * Post types to which the taxonomy should be applied.
 	 *
 	 * @var array
 	 */
 	public $post_types = array ();
+
+	public function extend_defaults()
+	{
+		$this->options['show_in_table_view'] = TRUE;
+		$this->options['show_sorter']        = TRUE;
+
+	}
 
 	/**
 	 * Registers the taxonomy.
