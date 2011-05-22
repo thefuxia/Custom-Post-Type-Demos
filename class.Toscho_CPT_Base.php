@@ -19,6 +19,11 @@ class Toscho_CPT_Base extends Toscho_CPT_And_Tax_Base
 		$this->options['offer_as_front_page'] = TRUE;
 	}
 
+	/**
+	 * Registers the CPT.
+	 *
+	 * @return void
+	 */
 	public function run()
 	{
 		register_post_type(
