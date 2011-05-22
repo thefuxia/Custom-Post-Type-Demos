@@ -43,6 +43,19 @@ class Toscho_Taxonomy_Base extends Toscho_CPT_And_Tax_Base
 	}
 
 	/**
+	 * Add one ore more post types to which the taxonomy applies.
+	 *
+	 * @param  mixed $post_types Array or string.
+	 * @return void
+	 */
+	public function add_post_type( $post_types )
+	{
+		$this->post_types = array_unique(
+			array_merge( $this->post_types, (array) $post_types )
+		);
+	}
+
+	/**
 	 * Show name and number in the Right Now dashboard widget.
 	 *
 	 * @return void
