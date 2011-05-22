@@ -20,7 +20,6 @@ class Toscho_Taxonomy_Base extends Toscho_CPT_And_Tax_Base
 	{
 		$this->options['show_in_table_view'] = TRUE;
 		$this->options['show_sorter']        = TRUE;
-
 	}
 
 	/**
@@ -64,8 +63,13 @@ class Toscho_Taxonomy_Base extends Toscho_CPT_And_Tax_Base
 	public function add_to_dashboard()
 	{
 		$num  = wp_count_terms( $this->name );
+		// thousands separator etc.
 		$num  = number_format_i18n( $num );
-		$text = _n( $this->labels['singular_name'], $this->labels['name'], $num );
+		// Singular or Plural.
+		$text = _n(
+			$this->labels['singular_name']
+		,	$this->labels['name'], $num
+		);
 
 		// @todo map cap
         if ( current_user_can( 'manage_categories' ) )
