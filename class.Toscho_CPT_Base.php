@@ -17,7 +17,13 @@ class Toscho_CPT_Base extends Toscho_CPT_And_Tax_Base
 		,	1
 		);
 		$this->options['offer_as_front_page'] = TRUE;
+	}
 
+	public function run()
+	{
+		register_post_type(
+			$this->name, $this->get_args()
+		);
 	}
 
 	/**
@@ -64,13 +70,16 @@ class Toscho_CPT_Base extends Toscho_CPT_And_Tax_Base
 			return $select;
 		}
 
+		$current = get_option( 'page_on_front' );
+		empty ( $current ) and $current = 0;
+
 		$options = walk_page_dropdown_tree(
 			$cpt_posts
 		,	0
 		,	 array(
 				'depth'                 => 0
 			 ,	'child_of'              => 0
-			 ,	'selected'              => 0
+			 ,	'selected'              => $current
 			 ,	'echo'                  => 0
 			 ,	'name'                  => 'page_on_front'
 			 ,	'id'                    => ''
