@@ -1,6 +1,8 @@
 <?php # -*- coding: utf-8 -*-
 /**
- * Base class for a Custom Taxonomy
+ * Base class for a Custom Taxonomy.
+ *
+ *
  *
  * @author Thomas Scholz <info@toscho.de>
  * @version 1.1
@@ -20,6 +22,11 @@ class Toscho_Taxonomy_Base extends Toscho_CPT_And_Tax_Base
 	 */
 	public $post_types = array ();
 
+	/**
+	 * Registers the taxonomy.
+	 *
+	 * @return void
+	 */
 	public function run()
 	{
 		if ( empty ( $this->post_types ) )
